@@ -1,0 +1,18 @@
+body{
+    background-color: blueviolet;
+}
+.header {
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    align-items:left; /* Add padding for spacing */
+  }
+  
+  .selected-book {
+    align-items:left; /* Pushes the search box to the right */
+  }
+
