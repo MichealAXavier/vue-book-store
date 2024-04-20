@@ -1,19 +1,16 @@
+// router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import BookDetails from '../views/BookDetails.vue';
+import Home from '../components/Home.vue';
+//import BookDetails from '../components/BookDetails.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/:id?',
     name: 'Home',
     component: Home,
+    props:true,
   },
-  {
-    path: '/book/:id',
-    name: 'BookDetails',
-    component: BookDetails,
-    props: true,
-  },
+  
 ];
 
 const router = createRouter({

@@ -1,13 +1,23 @@
 body{
-    background-color: blueviolet;
+    background-color: rgb(255, 255, 255);
 }
 .header {
     display: flex;
     justify-content: space-between; /* Space items evenly */
     align-items: center;
     font-weight: bold;
+    font-size: 30px;
+    color: rgb(7, 7, 7);
+    padding: 10px 20px;
+    align-items:left; /* Add padding for spacing */
+  }
+  .head {
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+    font-weight: bold;
     font-size: 40px;
-    color: rgb(255, 255, 255);
+    color: rgb(68, 9, 230);
     padding: 10px 20px;
     align-items:left; /* Add padding for spacing */
   }
