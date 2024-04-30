@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="container">
     <div class="head">Book Store
       <div class="header">
@@ -72,19 +72,7 @@ export default {
       router.replace({ path: `/${book.id}` });
     };
 
-    // Watch for changes in route params and update selected book in the Pinia store
-    watch(route, (to, from) => {
-      const bookId = parseInt(to.params.id);
-      if (!isNaN(bookId)) {
-        const selectedBook = books.value.find(book => book.id === bookId);
-        if (selectedBook) {
-          selectedBookStore.setSelectedBook(selectedBook);
-        }
-      } else {
-        selectedBookStore.clearSelectedBook(); // Reset selected book if no valid ID in URL
-      }
-    });
-
+    
     // Handle initial selection based on the route parameter
     const initialBookId = parseInt(route.params.id);
     if (!isNaN(initialBookId)) {
