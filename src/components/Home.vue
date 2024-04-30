@@ -35,21 +35,24 @@
 </template>
 
 <script>
-import { computed, watch, ref } from 'vue'; // Import ref
+import { computed, ref } from 'vue'; // Import ref
 import { useRoute, useRouter } from 'vue-router';
 import { useBooks } from '../mixins/bookData';
 import { useSelectedBookStore } from '../store/bookStore'; // Import the Pinia store
 
 export default {
-  setup() {
+  props: {
+    id: String 
+  },
+  setup(props) {
     const route = useRoute();
     const router = useRouter();
     const { books } = useBooks();
     const selectedBookStore = useSelectedBookStore(); // Use the Pinia store
 
-    // Compute selected book ID from the Pinia store
+    // Compute selected book ID from the Pinia store or props
     const selectedBookId = computed(() => {
-      return selectedBookStore.id;
+      return props.id || selectedBookStore.id; // Use props.id if available, otherwise use selectedBookStore.id
     });
 
     // Compute selected book title from the Pinia store
