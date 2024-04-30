@@ -50,9 +50,9 @@ export default {
     const { books } = useBooks();
     const selectedBookStore = useSelectedBookStore(); // Use the Pinia store
 
-    // Compute selected book ID from the Pinia store or props
+    // Compute selected book ID from the Pinia store
     const selectedBookId = computed(() => {
-      return props.id || selectedBookStore.id; // Use props.id if available, otherwise use selectedBookStore.id
+      return selectedBookStore.id;
     });
 
     // Compute selected book title from the Pinia store
@@ -75,13 +75,14 @@ export default {
       router.replace({ path: `/${book.id}` });
     };
 
-    
     // Handle initial selection based on the route parameter
-    const initialBookId = parseInt(route.params.id);
-    if (!isNaN(initialBookId)) {
-      const selectedBook = books.value.find(book => book.id === initialBookId);
-      if (selectedBook) {
-        selectedBookStore.setSelectedBook(selectedBook);
+    if (props.id) {
+      const initialBookId = parseInt(props.id);
+      if (!isNaN(initialBookId)) {
+        const selectedBook = books.value.find(book => book.id === initialBookId);
+        if (selectedBook) {
+          selectedBookStore.setSelectedBook(selectedBook);
+        }
       }
     }
 
@@ -94,6 +95,7 @@ export default {
     };
   },
 };
+
 </script>
 
 <style scoped>
